@@ -10,7 +10,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.4
         with:
-          - node-version: '22'
+          node-version: '22'
 
       - name: install pnpm
         run: npm i -g pnpm
@@ -30,4 +30,3 @@ jobs:
 
       - name: Set format with BiomeJS
         run: pnpm run format
-
