@@ -22,11 +22,13 @@ jobs:
 
       - name: update reposory and install rg
         run: |
-          sudo apt-get update
-          sudo apt-get install ripgrep
+          sudo apt-get update && sudo apt-get install ripgrep
 
       - name: ls
         run: ls
+
+      - name: Fix permissions
+        run: chmod -R 755 .
 
       - name: view
         shell: bash
