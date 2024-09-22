@@ -1,0 +1,33 @@
+name: set-format
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.4
+        with:
+          - node-version: '22'
+
+      - name: install pnpm
+        run: npm i -g pnpm
+
+      - name: update reposory and install rg
+        run: |
+          sudo apt-get update
+          sudo apt-get install ripgrep
+
+      - name: replace lines with space
+        run: |
+          rg -l "console.log" | xargs sed -i '/console.log/c\ '
+          rg -l "JSON" | xargs sed -i '/JSON/c\ '
+
+      - name: install deps with pnpm
+        run: pnpm install
+
+      - name: Set format with BiomeJS
+        run: pnpm run format
+
