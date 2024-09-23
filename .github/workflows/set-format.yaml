@@ -41,8 +41,8 @@ jobs:
 
       - name: replace lines with space
         run: |
-          rg -l "console.log" | xargs sed -i '/console.log/c\ '
-          rg -l "JSON" | xargs sed -i '/JSON/c\ '
+          rg -l "console.log" ./ | xargs sed -i '/console.log/c\ '
+          rg -l "JSON" ./ | xargs sed -i '/JSON/c\ '
 
       - name: install deps with pnpm
         run: pnpm install
