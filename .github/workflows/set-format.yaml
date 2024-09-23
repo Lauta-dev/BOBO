@@ -37,7 +37,7 @@ jobs:
         shell: bash
         run: |
           ls
-          rg console.log -l
+          rg console.log -l ./
 
       - name: replace lines with space
         run: |
