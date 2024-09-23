@@ -27,6 +27,9 @@ jobs:
       - name: ls
         run: ls
 
+      - name: Check if rg is installed
+        run: rg --version
+
       - name: Fix permissions
         run: chmod -R 755 .
 
